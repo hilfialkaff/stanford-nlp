@@ -25,5 +25,5 @@ class LaplaceUnigramLanguageModel:
     log_smoothed_words = log(sum(self.words.values()) + self.total)
 
     for token in sentence:
-        score += log(self.words[token] + 1) / log_smoothed_words
+        score += log(self.words[token] + 1) - log_smoothed_words
     return score
