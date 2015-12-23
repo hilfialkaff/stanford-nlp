@@ -7,7 +7,7 @@ from UnigramLanguageModel import UnigramLanguageModel
 from StupidBackoffLanguageModel import StupidBackoffLanguageModel
 from LaplaceUnigramLanguageModel import LaplaceUnigramLanguageModel
 from LaplaceBigramLanguageModel import LaplaceBigramLanguageModel
-from CustomLanguageModel import CustomLanguageModel
+from GoodTuringSmoothingModel import GoodTuringSmoothingModel
 from EditModel import EditModel
 from SpellingResult import SpellingResult
 import types
@@ -106,35 +106,35 @@ def main():
   devPath = '../data/holbrook-tagged-dev.dat'
   devCorpus = HolbrookCorpus(devPath)
 
-  print 'Uniform Language Model: '
-  uniformLM = UniformLanguageModel(trainingCorpus)
-  uniformSpell = SpellCorrect(uniformLM, trainingCorpus)
-  uniformOutcome = uniformSpell.evaluate(devCorpus)
-  print str(uniformOutcome)
+  # print 'Uniform Language Model: '
+  # uniformLM = UniformLanguageModel(trainingCorpus)
+  # uniformSpell = SpellCorrect(uniformLM, trainingCorpus)
+  # uniformOutcome = uniformSpell.evaluate(devCorpus)
+  # print str(uniformOutcome)
 
-  print 'Laplace Unigram Language Model: '
-  laplaceUnigramLM = LaplaceUnigramLanguageModel(trainingCorpus)
-  laplaceUnigramSpell = SpellCorrect(laplaceUnigramLM, trainingCorpus)
-  laplaceUnigramOutcome = laplaceUnigramSpell.evaluate(devCorpus)
-  print str(laplaceUnigramOutcome)
+  # print 'Laplace Unigram Language Model: '
+  # laplaceUnigramLM = LaplaceUnigramLanguageModel(trainingCorpus)
+  # laplaceUnigramSpell = SpellCorrect(laplaceUnigramLM, trainingCorpus)
+  # laplaceUnigramOutcome = laplaceUnigramSpell.evaluate(devCorpus)
+  # print str(laplaceUnigramOutcome)
 
-  print 'Laplace Bigram Language Model: '
-  laplaceBigramLM = LaplaceBigramLanguageModel(trainingCorpus)
-  laplaceBigramSpell = SpellCorrect(laplaceBigramLM, trainingCorpus)
-  laplaceBigramOutcome = laplaceBigramSpell.evaluate(devCorpus)
-  print str(laplaceBigramOutcome)
+  # print 'Laplace Bigram Language Model: '
+  # laplaceBigramLM = LaplaceBigramLanguageModel(trainingCorpus)
+  # laplaceBigramSpell = SpellCorrect(laplaceBigramLM, trainingCorpus)
+  # laplaceBigramOutcome = laplaceBigramSpell.evaluate(devCorpus)
+  # print str(laplaceBigramOutcome)
 
-  print 'Stupid Backoff Language Model: '
-  sbLM = StupidBackoffLanguageModel(trainingCorpus)
-  sbSpell = SpellCorrect(sbLM, trainingCorpus)
-  sbOutcome = sbSpell.evaluate(devCorpus)
-  print str(sbOutcome)
+  # print 'Stupid Backoff Language Model: '
+  # sbLM = StupidBackoffLanguageModel(trainingCorpus)
+  # sbSpell = SpellCorrect(sbLM, trainingCorpus)
+  # sbOutcome = sbSpell.evaluate(devCorpus)
+  # print str(sbOutcome)
 
-  print 'Custom Language Model: '
-  customLM = CustomLanguageModel(trainingCorpus)
-  customSpell = SpellCorrect(customLM, trainingCorpus)
-  customOutcome = customSpell.evaluate(devCorpus)
-  print str(customOutcome)
+  print 'Good-Turing Smoothing Language Model: '
+  goodTuringSmoothingLM = GoodTuringSmoothingModel(trainingCorpus)
+  goodTuringSmoothingSpell = SpellCorrect(goodTuringSmoothingLM, trainingCorpus)
+  goodTuringSmoothingOutcome = goodTuringSmoothingSpell.evaluate(devCorpus)
+  print str(goodTuringSmoothingOutcome)
 
 if __name__ == "__main__":
     main()
